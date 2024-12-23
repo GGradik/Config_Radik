@@ -40,7 +40,7 @@ def get_transitive_dependencies(package_name, collected):
         return collected
 
     # Список репозиториев для проверки
-    repos = ['main', 'community', 'testing']
+    repos = ['main']
     for repo in repos:
         dependencies = get_apk_dependencies(package_name, repo)
         if dependencies is not None:  # Если пакет найден
@@ -49,7 +49,7 @@ def get_transitive_dependencies(package_name, collected):
                 get_transitive_dependencies(dep, collected)
             return collected
 
-    print(f"Package '{package_name}' not found in any repository.")
+    print(f"Package '{package_name}'.")
     return collected
 
 def main():
